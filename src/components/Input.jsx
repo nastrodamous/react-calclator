@@ -6,5 +6,5 @@ export const Input = (props) => (
 );
 
 export const InputShowEquation = (props) => (
-    <div className="input">{props.equation}</div>
+    <div className="inputShowEquation">{props.equation}</div>
 );

@@ -24,9 +24,23 @@ class App extends Component {
     this.setState({equation: this.state.input,input: math.evaluate(this.state.input)})
   }
 
-  handleSquare = () => {
+  Square = () => {
     this.setState({equation: "sqr" + "("+ this.state.input +")",input: math.square(this.state.input)})
   }
+
+  SquareRoot = () => {
+    this.setState({equation: "sqrt" + "("+ this.state.input +")",input: math.sqrt(this.state.input)})
+  }
+
+  percentage = val => {
+
+  }
+
+  oneOver = () =>  {
+    const a = math.fraction('1'/this.state.input)
+    this.setState({equation: "sqrt" + "("+ this.state.input +")",input: math.fraction(this.state.input)})
+  }
+
 
   render() {
     return (<div className="app" >
@@ -34,6 +48,12 @@ class App extends Component {
         <div className="screen">
         <InputShowEquation equation={this.state.equation}></InputShowEquation>
         <Input input={this.state.input}></Input>
+        </div>
+        <div className="row">
+        <Button handleClick={this.Square}>sqr</Button>
+        <Button handleClick={this.SquareRoot}>sqrt</Button>
+        <Button handleClick={this.showInput}>%</Button>
+        <Button handleClick={this.oneOver}>1/X</Button>
         </div>
         <div className="row">
         <Button handleClick={this.showInput}>7</Button>
@@ -61,7 +81,7 @@ class App extends Component {
         </div>
         
         <div className="row">
-        <ClearButton handleClear = {() => this.setState({input: "",equation: ""})}>Clear</ClearButton>
+        <ClearButton handleClear = {() => this.setState({input: "",equation: ""})}>CLEAR</ClearButton>
         </div>
       </div>
     </div>)
